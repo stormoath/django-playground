@@ -1,0 +1,18 @@
+{% extends 'notes/base.html' %}
+
+{% block content %}
+	<div class="page-header">
+	<h2>Add your note here</h2>
+	</div>
+{% if error_message %}
+	<div class="alert alert-danger" role="alert">
+		<p><strong>{{ error_message }}</strong></p>
+	</div>
+{% endif %}
+
+<form method="POST">
+{% csrf_token %}
+{{note.as_p}}
+    <button type="submit" class="btn btn-lg btn-primary"></button>
+</form>
+{% endblock %}

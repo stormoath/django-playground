@@ -2,9 +2,9 @@
 
 {% block content %}
 {% if note_list %}
-	<div>
+	<div class="notes">
 		{% for note in note_list %}
-			<div id="note-{{note.id}}" style="background-color:#{{note.color}}">
+			<div class="well" id="note-{{note.id}}" style="background-color:#{{note.color}}">
 				<p class="note-title">{{note.title}}</p>
 				<p class="note-text">{{note.text}}</p>
 				<p class="pub-date">{{note.pubdate}}</p>
@@ -14,4 +14,5 @@
 {% else %}
 	<p> no Notes found! </p>
 {% endif %}
+	<a class="btn btn-lg btn-primary" href="./add/">Add a Note</a>
 {% endblock %}
