@@ -1,0 +1,18 @@
+body {
+	padding-left: 1vw;
+}
+
+.footer {
+	position: sticky;
+    bottom: 1vw;
+    padding: 1vw;
+    background-color: #444;
+    color: #fff;
+    margin-top: 1vh;
+}
+
+.notes {
+	display: flex;
+	flex-wrap: wrap;
+}
+

@@ -13,9 +13,6 @@ def index(request):
     }
     return HttpResponse(template.render(context, request))
 
-def note(request, id):
-    return HttpResponse("Dummy Note")
-
 def add(request):
     template = loader.get_template('notes/add.html')
     if (request.method == "POST"):
@@ -29,5 +26,43 @@ def add(request):
         note = post_note()
         context = {
             'note': note
+        }
+    return HttpResponse(template.render(context, request))
+
+def note(request, id):
+    template = loader.get_template('notes/detail.html')
+    try:
+        note = Note.objects.get(pk=id)
+        if (request.method == "POST"):
+            note.delete()   
+            return redirect('..')
+        context = {
+            'note': note
+        }
+    except Note.DoesNotExist as e:
+        context = {
+            'error_message': "This note does not exist!" 
+        }
+    return HttpResponse(template.render(context, request))
+
+def edit(request, id):
+    template = loader.get_template('notes/add.html')
+    if (request.method == "POST"):
+        form = post_note(request.POST)
+        if form.is_valid():
+            note = form.save(commit=False)
+            note.pk = id
+            note.pubdate = timezone.now()
+            note.save()
+            return redirect('..')
+        else:
+            context = {
+                'error_message': "There's something wrong with your note. It's probably too long!"
+            }
+    else:
+        note = Note.objects.get(pk=id)
+        editForm = post_note(initial={'title': note.title , 'text': note.text , 'color': note.color})
+        context = {
+            'note': editForm
         }
     return HttpResponse(template.render(context, request))

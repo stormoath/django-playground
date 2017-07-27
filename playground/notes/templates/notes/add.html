@@ -2,7 +2,7 @@
 
 {% block content %}
 	<div class="page-header">
-	<h2>Add your note here</h2>
+	<h2>Add or edit your note here</h2>
 	</div>
 {% if error_message %}
 	<div class="alert alert-danger" role="alert">
@@ -13,6 +13,6 @@
 <form method="POST">
 {% csrf_token %}
 {{note.as_p}}
-    <button type="submit" class="btn btn-lg btn-primary"></button>
+    <button type="submit" class="btn btn-lg btn-primary">Save your note!</button>
 </form>
 {% endblock %}

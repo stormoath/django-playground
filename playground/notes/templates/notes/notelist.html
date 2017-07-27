@@ -4,11 +4,13 @@
 {% if note_list %}
 	<div class="notes">
 		{% for note in note_list %}
-			<div class="well" id="note-{{note.id}}" style="background-color:#{{note.color}}">
-				<p class="note-title">{{note.title}}</p>
-				<p class="note-text">{{note.text}}</p>
-				<p class="pub-date">{{note.pubdate}}</p>
-			</div>
+			<a class="notes-link" href="/notes/{{note.id}}/">
+				<div class="well" id="note-{{note.id}}" style="background-color:#{{note.color}}">
+					<p class="note-title">{{note.title}}</p>
+					<p class="note-text">{{note.text}}</p>
+					<p class="pub-date">{{note.pubdate}}</p>
+				</div>
+			</a>
 		{% endfor %}
 	</div>
 {% else %}

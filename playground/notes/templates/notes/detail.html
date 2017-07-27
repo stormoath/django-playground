@@ -1,0 +1,27 @@
+{% extends 'notes/base.html' %}
+
+{% block content %}
+	<div class="page-header">
+	<h2>Here's your note</h2>
+	</div>
+{% if error_message %}
+	<div class="alert alert-danger" role="alert">
+		<p><strong>{{ error_message }}</strong></p>
+		<a class="btn btn-lnk back" href="..">Back to notes overview</a>
+	</div>
+	<a class="btn btn-lnk back" href="..">Back to notes overview</a>
+{% else %}
+<a class="btn btn-lnk back" href="..">Back to notes overview</a>
+<a class="notes-link" href="/notes/{{note.id}}/edit">
+<div class="well" id="note-detail" style="background-color:#{{note.color}}">
+	<p class="note-title">{{note.title}}</p>
+	<p class="note-text">{{note.text}}</p>
+	<p class="pub-date">{{note.pubdate}}</p>
+</div>
+</a>
+<form method="POST">
+{% csrf_token %}
+    <button type="submit" class="btn btn-lg btn-danger">Delete note!</button>
+</form>
+{% endif %}
+{% endblock %}

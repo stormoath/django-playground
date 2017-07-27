@@ -1,0 +1,81 @@
+body {
+	margin: 0;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.jumbotron {
+	padding: 1vw;
+}
+
+.wrapper {
+	flex: 1 0 auto;
+	margin: 5vh 1vw;
+}
+
+.page-header {
+	margin-top: 0;
+}
+
+.footer {
+	width: 100%;
+	padding: 1vw;
+	background-color: rgb(68, 68, 68);
+	color: #fff;
+}
+
+.notes {
+	width: 100%;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-evenly;
+}
+
+.notes-link {
+	color: #000;
+	text-decoration: none;
+}
+
+.notes-link:hover {
+	color: #111;
+	text-decoration: none;
+}
+
+.notes div:hover, #note-detail:hover {
+	box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.4);
+}
+
+.notes div {
+	position: relative;
+	min-height: 200px;
+	min-width: 200px;
+	width: 30vw;
+	padding: 2vmin;
+	overflow: hidden;
+}
+
+.note-title {
+	font-weight: bolder;
+}
+
+.pub-date {
+	position: absolute;
+	font-style: italic;
+	bottom: 0;
+	right: 1vw;
+}
+
+#id_text {
+	width: 80vw;
+	vertical-align: top;
+	min-height: 30vh;
+}
+
+#note-detail {
+	position: relative;
+}
+
+.back {
+	margin-bottom: 2vh;
+}

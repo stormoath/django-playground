@@ -2,7 +2,7 @@ from django.db import models
 
 class Note(models.Model):
     title = models.CharField(max_length=100)
-    text = models.CharField(max_length=1000)
+    text = models.TextField(max_length=2500)
     COLORS = (
         ('A1D490','green'),
         ('90C3D4','blue'),
